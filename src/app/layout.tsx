@@ -9,7 +9,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Issue tracker",
+  title: "Productive Army",
   description:
     "A lightweight issue tracker that stores work in this browser until a backend is connected.",
 };

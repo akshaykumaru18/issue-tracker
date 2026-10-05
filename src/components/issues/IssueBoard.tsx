@@ -205,7 +205,7 @@ export function IssueBoard({ repository }: IssueBoardProps) {
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
             <p className="body2">Saved in this browser</p>
-            <h1 className="heading1">Issue tracker</h1>
+            <h1 className="heading1">Productive Army</h1>
           </div>
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
             <Link href="/login" className="btn btn-ghost w-full no-underline sm:w-auto">
