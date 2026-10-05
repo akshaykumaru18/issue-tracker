@@ -1,26 +1,248 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #ffffff;
+  --ink: #1c1c1c;
+  --muted: #7a3038;
+  --line: #f0c9ce;
+  --brand: #c41230;
+  --brand-dark: #9e0e26;
+  --brand-soft: #fff1f3;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-open-sans), "Open Sans", sans-serif;
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-soft: var(--brand-soft);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html,
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .heading1 {
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--brand);
+  }
+
+  .heading2 {
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .body1 {
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .body2 {
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .clamp-2 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .app-shell {
+    background: var(--canvas);
+    color: var(--ink);
+  }
+
+  .app-header {
+    background: #ffffff;
+    border-bottom: 4px solid var(--brand);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 2px solid var(--brand);
+    border-radius: 0;
+    background: var(--brand);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    cursor: pointer;
+    box-shadow: none;
+  }
+
+  .btn:hover {
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+  }
+
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    color: var(--brand);
+  }
+
+  .btn-secondary:hover {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+  }
+
+  .btn-ghost {
+    background: #ffffff;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+
+  .btn-ghost:hover {
+    background: var(--brand-soft);
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+
+  .field {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 2px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: none;
+  }
+
+  .field-multiline {
+    min-height: 128px;
+    resize: vertical;
+  }
+
+  .field:focus {
+    border-color: var(--brand);
+    outline: 2px solid var(--brand);
+    outline-offset: 1px;
+  }
+
+  .field-error {
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    color: var(--brand);
+  }
+
+  .card {
+    border: 2px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
+    padding: 16px;
+    box-shadow: none;
+  }
+
+  .card-active {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 0 8px;
+    border: 2px solid var(--brand);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--brand);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .badge-solid {
+    background: var(--brand);
+    color: #ffffff;
+  }
+
+  .chip {
+    min-height: 40px;
+    padding: 0 12px;
+    border: 2px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .chip-active {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: #ffffff;
+  }
+
+  .alert {
+    border: 2px solid var(--brand);
+    border-radius: 0;
+    background: var(--brand-soft);
+    color: var(--brand);
+    padding: 12px 16px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading1 {
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+  }
+
+  .heading2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
